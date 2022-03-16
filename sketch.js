@@ -48,6 +48,12 @@ function setup() {
   createCanvas(800, 970);
   background(250, 218, 221);
   textFont(myFontb);
+  topsLine();
+  bottomsLine();
+  accessoriesLine();
+  topsText();
+  bottomsText();
+  accessoriesText();
   introText();
   introText2();
   introText3();
@@ -65,6 +71,12 @@ function mousePressed() {
   createCanvas(800, 970);
   background(250, 218, 221);
   frameRate(60);
+  topsLine();
+  bottomsLine();
+  accessoriesLine();
+  topsText();
+  bottomsText();
+  accessoriesText();
   introText();
   introText2();
   introText3();
@@ -74,13 +86,58 @@ function mousePressed() {
   console.log(wrds);
 
   bottomsResult = int(random(bottomsImg.length))
-  image(bottomsImg[bottomsResult], 427, 240, 380, 420);
+  image(bottomsImg[bottomsResult], width*0.534, height*0.247, width*0.475, height*0.433);
 
   topsResult = int(random(topsImg.length))
-  image(topsImg[topsResult], 110, 280, 380, 450);
+  image(topsImg[topsResult], width*0.138, height*0.289, width*0.475, height*0.464);
 
   accessoriesResult = int(random(accessoriesImg.length))
-  image(accessoriesImg[accessoriesResult], 420, 630, 380, 290);
+  image(accessoriesImg[accessoriesResult], width*0.525, height*0.649, width*0.475, height*0.299);
+}
+
+function accessoriesLine() {
+  noStroke();
+  fill(114, 84, 70);
+  rect(width*0, height*0.702, width*0.469, height*0.031);
+  rect(width*0.85, height*0.711, width*0.188, height*0.010);
+}
+
+function bottomsLine() {
+  noStroke();
+  fill(114, 84, 70);
+  rect(width*0, height*0.402, width*0.45, height*0.052);
+  rect(width*0.9075, height*0.420, width*0.188, height*0.021);
+}
+
+function topsLine() {
+  noStroke();
+  fill(114, 84, 70);
+  rect(width*0, height*0.531, width*0.15, height*0.080);
+  rect(width*0.5, height*0.564, width*0.5, height*0.021);
+}
+
+function accessoriesText() {
+  fill(179, 146, 131);
+  textAlign(LEFT);
+  textSize(40);
+  text('ACCESSORIES.', width*0.5, height*0.73);
+  textFont(myFontb);
+}
+
+function bottomsText() {
+  fill(179, 146, 131);
+  textAlign(LEFT);
+  textSize(65);
+  text('BOTTOMS.', width*0.48, height*0.45);
+  textFont(myFontb);
+}
+
+function topsText() {
+  fill(179, 146, 131);
+  textAlign(RIGHT);
+  textSize(85);
+  text('TOPS.', width*0.456, height*0.6);
+  textFont(myFontb);
 }
 
 function clickBall() {
@@ -92,15 +149,14 @@ function clickBall() {
 function blackLine() {
   noStroke();
   fill(179, 146, 131);
-  rect(114, 163, 300, 3);
+  rect(width*0.15, height*0.168, width*0.375, height*0.003);
 }
 
 function introText() {
   fill(114, 84, 70);
   textAlign(RIGHT);
   textSize(65);
-  //this is a lie, you can click anywhere
-  text('WELCOME', width*0.515, height*0.135);
+  text('WELCOME', width*0.52, height*0.135);
   textFont(myFontb);
 }
 
@@ -122,6 +178,12 @@ function introText3(){
 
 function fortText() {
   background(250, 218, 221);
+  topsLine();
+  bottomsLine();
+  accessoriesLine();
+  topsText();
+  bottomsText();
+  accessoriesText()
   introText();
   introText2();
   introText3();
@@ -130,8 +192,6 @@ function fortText() {
   fill(114, 84, 70);
   textAlign(CENTER);
   textSize(22);
-  //text('"', width*0.05, height*0.85,);
-  //text('"', width*0.93, height*0.85,);
   text(wrds, width*0.14, height*0.82, width*0.35, height*0.9)
   textFont(myFontb);
 }
