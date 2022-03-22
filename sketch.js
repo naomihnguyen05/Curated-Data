@@ -187,7 +187,7 @@ function introText3(){
   fill(114, 84, 70);
   textAlign(RIGHT);
   textSize(introResize3);
-  text('at the bottom to generate an outfit and a task.', width*0.425, height*0.23);
+  text('to the right to generate an outfit and a task.', width*0.413, height*0.23);
   textFont(myFontb);
 }
 
