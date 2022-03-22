@@ -53,7 +53,7 @@ function preload() {
 
 
 function setup() {
-  let canvas = createCanvas(windowWidth*0.5, (windowHeight*1));
+  let canvas = createCanvas(800, 970);
   canvas.parent('myCanvas');
   background(250, 218, 221);
   //createCanvas(800, 970);
@@ -71,9 +71,9 @@ function setup() {
   introText3();
   blackLine();
   //clickBall();
-  button = createButton('CLICK HERE')
-  button.position(840,93);
-  button.mousePressed(clickBall);
+  //button = createButton('CLICK HERE')
+  //button.parent('myCanvas');
+  //button.mousePressed(clickBall);
   console.log(quotes[int(random(quotes.length))]);
   console.log(quotes[3]);
   console.log(quotes.length);
@@ -187,7 +187,7 @@ function introText3(){
   fill(114, 84, 70);
   textAlign(RIGHT);
   textSize(introResize3);
-  text('to the right to generate an outfit and a task.', width*0.412, height*0.23);
+  text('at the bottom to generate an outfit and a task.', width*0.425, height*0.23);
   textFont(myFontb);
 }
 
