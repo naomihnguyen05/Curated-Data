@@ -6,6 +6,14 @@ let accessoriesImg = [];
 let bottomsImg = [];
 let myFontb;
 let wrds;
+let button;
+let introResize;
+let introResize2;
+let introResize3;
+let topsResize;
+let bottomsResize;
+let accessoriesResize;
+
 
 
 function preload() {
@@ -45,9 +53,13 @@ function preload() {
 
 
 function setup() {
-  createCanvas(800, 970);
+  let canvas = createCanvas(windowWidth*0.5, (windowHeight*1));
+  canvas.parent('myCanvas');
   background(250, 218, 221);
+  //createCanvas(800, 970);
+  frameRate(60);
   textFont(myFontb);
+  textResize();
   topsLine();
   bottomsLine();
   accessoriesLine();
@@ -58,7 +70,10 @@ function setup() {
   introText2();
   introText3();
   blackLine();
-  clickBall();
+  //clickBall();
+  button = createButton('CLICK HERE')
+  button.position(840,93);
+  button.mousePressed(clickBall);
   console.log(quotes[int(random(quotes.length))]);
   console.log(quotes[3]);
   console.log(quotes.length);
@@ -68,9 +83,9 @@ function mousePressed() {
   mr = int(random(quotes.length));
   wrds = quotes[mr];
 
-  createCanvas(800, 970);
+  //createCanvas(800, 970);
   background(250, 218, 221);
-  frameRate(60);
+//  frameRate(60);
   topsLine();
   bottomsLine();
   accessoriesLine();
@@ -99,27 +114,27 @@ function accessoriesLine() {
   noStroke();
   fill(114, 84, 70);
   rect(width*0, height*0.702, width*0.469, height*0.031);
-  rect(width*0.85, height*0.711, width*0.188, height*0.010);
+  rect(width*0.76, height*0.711, width*0.3, height*0.010);
 }
 
 function bottomsLine() {
   noStroke();
   fill(114, 84, 70);
   rect(width*0, height*0.402, width*0.45, height*0.052);
-  rect(width*0.9075, height*0.420, width*0.188, height*0.021);
+  rect(width*0.87, height*0.420, width*0.4, height*0.021);
 }
 
 function topsLine() {
   noStroke();
   fill(114, 84, 70);
-  rect(width*0, height*0.531, width*0.15, height*0.080);
+  rect(width*0, height*0.531, width*0.17, height*0.080);
   rect(width*0.5, height*0.564, width*0.5, height*0.021);
 }
 
 function accessoriesText() {
   fill(179, 146, 131);
   textAlign(LEFT);
-  textSize(40);
+  textSize(accessoriesResize);
   text('ACCESSORIES.', width*0.5, height*0.73);
   textFont(myFontb);
 }
@@ -127,7 +142,7 @@ function accessoriesText() {
 function bottomsText() {
   fill(179, 146, 131);
   textAlign(LEFT);
-  textSize(65);
+  textSize(bottomsResize);
   text('BOTTOMS.', width*0.48, height*0.45);
   textFont(myFontb);
 }
@@ -135,7 +150,7 @@ function bottomsText() {
 function topsText() {
   fill(179, 146, 131);
   textAlign(RIGHT);
-  textSize(85);
+  textSize(topsResize);
   text('TOPS.', width*0.456, height*0.6);
   textFont(myFontb);
 }
@@ -143,36 +158,36 @@ function topsText() {
 function clickBall() {
   noStroke();
   fill(179, 146, 131);
-  ellipse(width*0.6,height*0.118, 50);
+  //ellipse(width*0.6,height*0.118, 50);
 }
 
 function blackLine() {
   noStroke();
   fill(179, 146, 131);
-  rect(width*0.15, height*0.168, width*0.375, height*0.003);
+  rect(width*0.153, height*0.168, width*0.3, height*0.003);
 }
 
 function introText() {
   fill(114, 84, 70);
   textAlign(RIGHT);
-  textSize(65);
-  text('WELCOME', width*0.52, height*0.135);
+  textSize(introResize);
+  text('WELCOME', width*0.46, height*0.135);
   textFont(myFontb);
 }
 
 function introText2() {
   fill(114, 84, 70);
   textAlign(RIGHT);
-  textSize(15);
-  text('to your personal styler guide! Click on the circle', width*0.535, height*0.21);
+  textSize(introResize2);
+  text('to your personal styler guide! Click on the circle', width*0.44, height*0.21);
   textFont(myFontb);
 }
 
 function introText3(){
   fill(114, 84, 70);
   textAlign(RIGHT);
-  textSize(15);
-  text('to the right to generate an outfit and a task.', width*0.497, height*0.23);
+  textSize(introResize3);
+  text('to the right to generate an outfit and a task.', width*0.412, height*0.23);
   textFont(myFontb);
 }
 
@@ -194,4 +209,53 @@ function fortText() {
   textSize(22);
   text(wrds, width*0.14, height*0.82, width*0.35, height*0.9)
   textFont(myFontb);
+}
+
+function textResize() {
+  if (windowWidth > 1700) {
+    topsResize = 85
+    bottomsResize = 65
+    accessoriesResize = 40
+    introResize = 70;
+    introResize2 = 15;
+    introResize3 = 15;
+  } else if (windowWidth > 1200) {
+    topsResize = 75
+    bottomsResize = 55
+    accessoriesResize = 30
+    introResize = 55;
+    introResize2 = 11;
+    introResize3 = 11;
+  } else if (windowWidth > 900) {
+    topsResize = 65
+    bottomsResize = 45
+    accessoriesResize = 30
+    introResize = 45;
+    introResize2 = 8;
+    introResize3 = 8;
+  }
+}
+
+function windowResized() {
+  resizeCanvas(windowWidth/1.5, (windowHeight/1));
+  textResize();
+
+  background(250, 218, 221);
+  topsLine();
+  bottomsLine();
+  accessoriesLine();
+  topsText();
+  bottomsText();
+  accessoriesText();
+  introText();
+  introText2();
+  introText3();
+  blackLine();
+  clickBall();
+  fortText();
+  console.log(wrds);
+
+  image(bottomsImg[bottomsResult], width*0.534, height*0.247, width*0.475, height*0.433);
+  image(topsImg[topsResult], width*0.138, height*0.289, width*0.475, height*0.464);
+  image(accessoriesImg[accessoriesResult], width*0.525, height*0.649, width*0.475, height*0.299);
 }
